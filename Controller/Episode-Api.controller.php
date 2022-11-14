@@ -20,12 +20,12 @@ class EpisodeApiController{
     }
 
     function getEpisodes($params = null){
-        $sort = $_GET['sort'];
-        $order = $_GET['order'];
-        $size = $_GET['size'];
-        $offset = $size * ($_GET['page'] - 1);
-        $filter = $_GET['filter'];
-        $data = $_GET['input'];
+        $sort = $_GET['sort'] ?? null;
+        $order = $_GET['order'] ?? null;
+        $size = $_GET['size'] ?? null;
+        $offset = $size * ($_GET['page'] - 1) ?? null;
+        $filter = $_GET['filter'] ?? null;
+        $data = $_GET['input'] ?? null;
 
         if (isset($sort) && isset($order)){
             if (($sort == 'nameEpisode' || $sort == 'Director' || $sort == 'fk_id_Season' || $sort == 'premiereYear') && ($order == 'ASC' || $order == 'DESC')){
@@ -35,14 +35,14 @@ class EpisodeApiController{
                 $this->view->response("No ingresó los parametros correctos", 404);
             }
         } else if (isset($size) && isset($offset)){
-            $episodes = $this->model->getEpisodes(null, null, $size, $offset);
+            $episodes = $this->model->getEpisodes($sort, $order, $size, $offset);
             if (empty($episodes)) {
                 $this->view->response("No hay más episodios en la lista", 404);
             } else {
             $this->view->response($episodes, 200);
             }
         } else if (isset($filter) && isset($data)){
-            $episodes = $this->model->getEpisodes(null, null, null, null, $filter, $data);
+            $episodes = $this->model->getEpisodes($sort, $order, $size, $offset, $filter, $data);
             if (empty($episodes)){
                 $this->view->response("No hay ningún episodio de ese $filter", 404);
             } else {
