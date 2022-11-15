@@ -23,7 +23,7 @@ class EpisodeApiController{
         $sort = $_GET['sort'] ?? null;
         $order = $_GET['order'] ?? null;
         $size = $_GET['size'] ?? null;
-        $offset = $size * ($_GET['page']?? null - 1) ?? null;
+        $offset = $size * ($_GET['page'] ?? null - 1);
         $filter = $_GET['filter'] ?? null;
         $data = $_GET['input'] ?? null;
 
