@@ -1,5 +1,11 @@
-Segunda entrega del trabajo práctico de Web II. Se generó una API REST de carácter pública para la Serie de televisón: La ley y el Orden: U.V.E. 
-La misma se puede consumir por Postman con los siguientes endpoints:
+Segunda entrega del trabajo práctico de Web II. 
+
+Se generó una API RESTfull de carácter pública para la Serie de televisón: La ley y el Orden: U.V.E. 
+
+>Requerimiento:
+Importar desde PHPMyAdmin (o cualquiera otra) la base de datos: db_serie.sql
+
+Se puede consumir por Postman con los siguientes endpoints:
 
 # El endpoint de la API es (Para obtener todos los episodios):
 http://localhost/proyectos/TPE-SegParte-Series/api/episodes
